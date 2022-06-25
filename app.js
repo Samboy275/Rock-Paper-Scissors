@@ -51,17 +51,17 @@ function game(){
         let result = Round(playerMove, computerMove);
         console.log(`Computer Move ${computerMove}`);
         console.log(`Player Move ${playerMove}`);
-        // check who 
+        // check who won
         switch(result)
         {
-            case 'win':
-                playerWins++;
+            case 'you won':
+                playerWins += 1;
                 break;
-            case 'lose':
-                computerWins++;
+            case 'you lost':
+                computerWins += 1;
                 break;
         }
-        console.log(result);
+        console.log(result + ` Your Score : ${playerWins}, Computer Score : ${computerWins}`);
     }
 //output game winner
     if(playerWins > computerWins)

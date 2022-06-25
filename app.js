@@ -17,25 +17,21 @@ function Round(playerInput, computerInput)
     }
     // check if player losses this round
     playerWon = false;
-    switch(playerInput){
-        case 'rock' && computerInput == 'scissors':
+
+    if (playerInput == 'rock' && computerInput == 'scissors')
             playerWon = true
-            break;
-        case 'paper' && computerInput == 'rock':
+    else if (playerInput == 'paper' && computerInput == 'rock')
             playerWon = true;
-            break;
-        case 'scissors' && computerInput == 'paper':
+    else if (playerInput == 'scissors' && computerInput == 'paper')
             playerWon = true;
-            break;
-    }
 
     if (playerWon)
     {
-        return 'win'; // player wins
+        return 'you won'; // player wins
     }
     else
     {
-        return 'lose' // player lost
+        return 'you lost' // player lost
     }
 }
 //a game consists of 5 rounds in each round
@@ -70,9 +66,9 @@ function game(){
 //output game winner
     if(playerWins > computerWins)
     {
-        console.log("The Player Won!!");
+        console.log(`Player won by ${playerWins} rounds out of 5`);
     } else {
-        console.log("The Computer Won!! and you lost");
+        console.log(`Computer won by ${computerWins} rounds out of 5`);
     }
 }
 

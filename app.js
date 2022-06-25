@@ -53,6 +53,8 @@ function game(){
         let playerMove = prompt("Input Your Move");
         playerMove = playerMove.toLowerCase();
         let result = Round(playerMove, computerMove);
+        console.log(`Computer Move ${computerMove}`);
+        console.log(`Player Move ${playerMove}`);
         // check who 
         switch(result)
         {

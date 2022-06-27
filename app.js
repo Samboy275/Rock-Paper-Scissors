@@ -1,13 +1,17 @@
 //make the computer choose a random out of rock paper scissors
 const computerChoices = ['rock', 'paper', 'scissors'];
 // get buttons
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.choice-buttons');
+const startButton = document.getElementById('start-game');
+startButton.addEventListener('click', StartGame);
+const gameUI = document.querySelector('.interactive-ui'); // game window
+gameUI.style.display = 'none';
 // results div 
 const results = document.querySelector('#results');
 // tracking rounds of player and computer
 let playerWins = 0;
 let computerWins = 0;
-
+let isGameRunning = false; // tracking game status
 // make random move by computer
 function ComputerPlay()
 {
@@ -19,6 +23,11 @@ function ComputerPlay()
 // take the player movement from the button clicked and register it
 function playerMove(buttonClick){
     console.log(`Player chose ${buttonClick.target.id}`);
+    if (playerWins === 5 || computerWins === 5)
+    {
+        console.log("this shouldnt run");
+        return;
+    }
     Round(buttonClick.target.id);
 }
 
@@ -63,44 +72,28 @@ function Round(playerInput)
 // update results div
 function UpdateScores()
 {
-    results.innerHTML = `<h2>Player Score: ${playerWins}</h2><h2>Computer Score: ${computerWins}</h2>`
+    if(playerWins < 5 && computerWins < 5)
+    {
+        results.innerHTML = `<h2>Player Score: ${playerWins}</h2><h2>Computer Score: ${computerWins}</h2>`;
+        return;
+    }
+    else if (playerWins >= 5)
+    {
+        results.innerHTML = '<h2>Player won!!';
+    }
+    else
+    {
+        results.innerHTML = `<h2>Computer won!!`;
+    }
+    results.style.justifyContent= `center`;
 }
 //a game consists of 5 rounds in each round
-function game(){
-    // welcome the player
-    alert("welcome to rock paper scissors");
-    // keep count of how many rounds the player or the computer won
-    let playerWins = 0;
-    let computerWins = 0;
-    for (i = 0; i < 5; i++)
-    {
-        //get the computer's move
-        let computerMove = ComputerPlay();
-        //get the player's move and make it case insensitive
-        let playerMove = prompt("Input Your Move");
-        playerMove = playerMove.toLowerCase();
-        let result = Round(playerMove, computerMove);
-        console.log(`Computer Move ${computerMove}`);
-        console.log(`Player Move ${playerMove}`);
-        // check who won
-        switch(result)
-        {
-            case 'you won':
-                playerWins += 1;
-                break;
-            case 'you lost':
-                computerWins += 1;
-                break;
-        }
-        console.log(result + ` Your Score : ${playerWins}, Computer Score : ${computerWins}`);
-    }
-//output game winner
-    if(playerWins > computerWins)
-    {
-        console.log(`Player won by ${playerWins} rounds out of 5`);
-    } else {
-        console.log(`Computer won by ${computerWins} rounds out of 5`);
-    }
+function StartGame(e){
+    gameUI.style.display = 'flex';
+    results.innerHTML = ''
+    results.style.justifyContent = 'space-around';
+    playerWins = 0;
+    computerWins = 0;
 }
 
 // start the game

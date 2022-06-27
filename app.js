@@ -6,6 +6,16 @@ function ComputerPlay()
     let choice = Math.floor(Math.random() * computerChoices.length);
     return computerChoices[choice];
 }
+// take the player movement from the button clicked and register it
+function playerMove(buttonClick){
+    
+}
+// get buttons
+const buttons = document.querySelectorAll('button');
+
+// register onclick event for each button
+buttons.forEach((button) => button.addEventListener('click', playerMove));
+
 
 //make a round of rock paper scissors
 function Round(playerInput, computerInput)

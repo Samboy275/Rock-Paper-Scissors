@@ -1,0 +1,27 @@
+body{
+    width: 100%;
+    background-color: wheat;
+    color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: c;
+}
+
+
+.container{
+    width: 100%;
+    padding: 500px;
+}
+
+.interactive-ui{
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button{
+    height: 300px;
+    width: 300px;
+}

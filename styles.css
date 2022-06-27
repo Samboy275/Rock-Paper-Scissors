@@ -24,12 +24,17 @@ body{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;   
+    justify-content: space-between;   
 }
 
 
 button{
     padding: 30px;
+    border-radius: 20px;
+    background-color: brown;
+    color: wheat;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 
@@ -38,4 +43,29 @@ button{
     display: flex;
     justify-content: space-around;
     align-content: space-around;
+}
+
+
+.green-bg{
+    background-color: green;
+}
+
+.red-bg{
+    background-color: red;
+}
+
+
+.computer-choices{
+    font-size: 18px;
+    background-color: brown;
+    color: wheat;
+    border-radius: 20px;
+    padding:30px;
+    font-weight: bold;
+}
+
+
+.player-buttons{
+    display: flex;
+    flex-direction: column;
 }

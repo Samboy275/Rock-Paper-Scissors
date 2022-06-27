@@ -85,15 +85,19 @@ function UpdateScores()
     {
         results.innerHTML = `<h2>Computer won!!`;
     }
+    const para = document.createElement('p');
+    para.textContent = 'Press Start Game button to play again';
+    results.style.flexDirection = 'column';
+    results.style.alignItems = 'center';
     results.style.justifyContent= `center`;
+    results.appendChild(para);
 }
 //a game consists of 5 rounds in each round
 function StartGame(e){
     gameUI.style.display = 'flex';
     results.innerHTML = ''
+    results.style.flexDirection = 'row';
     results.style.justifyContent = 'space-around';
     playerWins = 0;
     computerWins = 0;
 }
-
-// start the game

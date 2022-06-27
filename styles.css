@@ -25,3 +25,9 @@ button{
     height: 300px;
     width: 300px;
 }
+
+
+#results{
+    display: flex;
+    justify-content: space-between;
+}
